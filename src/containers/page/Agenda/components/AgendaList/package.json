@@ -1,0 +1,6 @@
+{
+  "name": "AgendaList",
+  "version": "0.0.0",
+  "private": true,
+  "main": "./AgendaList.js"
+}

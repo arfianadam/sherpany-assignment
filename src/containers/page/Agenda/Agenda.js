@@ -3,6 +3,8 @@ import React, { Component } from 'react';
 import Helmet from 'react-helmet';
 // import { connect } from 'react-redux';
 import AgendaHeader from 'containers/AgendaHeader';
+import AgendaContent from 'containers/AgendaContent';
+import AgendaFooter from 'containers/AgendaFooter';
 import styles from './Agenda.scss';
 
 export default class Agenda extends Component {
@@ -11,6 +13,8 @@ export default class Agenda extends Component {
       <div className={styles.Agenda}>
         <Helmet title="Agenda" />
         <AgendaHeader create />
+        <AgendaContent />
+        <AgendaFooter />
       </div>
     );
   }
