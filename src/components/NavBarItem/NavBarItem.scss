@@ -1,0 +1,27 @@
+@import '~theme/variables.scss';
+@import '~theme/custom.scss';
+
+.NavBarItem {
+  display: inline-block;
+
+  button {
+    display: block;
+    margin-bottom: -1px;
+    border: none;
+    border-bottom: 1px solid $grey-dark;
+    color: $grey-dark;
+    display: inline-block;
+    padding: $space $space*3;
+    background: transparent;
+    @include transition(all .2s);
+
+    &:focus {
+      outline: none;
+    }
+
+    &.active {
+      color: $text-color;
+      border-bottom: 1px solid $blue;
+    }
+  }
+}

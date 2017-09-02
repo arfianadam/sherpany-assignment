@@ -6,7 +6,7 @@ export default class AgendaHeaderDummy extends Component {
   static propTypes = {
     create: PropTypes.bool,
     onChange: PropTypes.func.isRequired,
-    title: PropTypes.string.isRequired
+    title: PropTypes.string.isRequired,
   };
 
   static defaultProps = {
@@ -21,9 +21,8 @@ export default class AgendaHeaderDummy extends Component {
   }
 
   componentDidUpdate() {
-    const { title } = this.props;
     this.hiddenTitleInput.style.display = 'inline';
-    if (title.length > 0) {
+    if (this.hiddenTitleInput.offsetWidth > 150) {
       this.titleInput.style.width = `${this.hiddenTitleInput.offsetWidth.toString()}px`;
     } else {
       this.titleInput.style.width = '150px';

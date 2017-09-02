@@ -1,0 +1,14 @@
+@import '~theme/variables.scss';
+@import '~theme/custom.scss';
+
+.NavBarDummy {
+  background: $white;
+  padding: 0 $space;
+  border-bottom: 1px solid $grey-dark;
+
+  ul {
+    margin-bottom: 0;
+    padding: 0;
+    list-style-type: none;
+  }
+}
