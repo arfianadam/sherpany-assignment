@@ -22,10 +22,10 @@ export default class AgendaHeaderDummy extends Component {
 
   componentDidUpdate() {
     this.hiddenTitleInput.style.display = 'inline';
-    if (this.hiddenTitleInput.offsetWidth > 150) {
+    if (this.hiddenTitleInput.offsetWidth > 115) {
       this.titleInput.style.width = `${this.hiddenTitleInput.offsetWidth.toString()}px`;
     } else {
-      this.titleInput.style.width = '150px';
+      this.titleInput.style.width = '115px';
     }
     this.hiddenTitleInput.style.display = 'none';
   }
