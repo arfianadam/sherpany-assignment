@@ -1,0 +1,6 @@
+{
+  "name": "AgendaHeader",
+  "version": "0.0.0",
+  "private": true,
+  "main": "./AgendaHeader.js"
+}

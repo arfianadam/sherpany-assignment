@@ -1,0 +1,11 @@
+$grey: #fafafa;
+$grey-dark: darken($grey, 10%);
+$grey-light: lighten($grey, 10%);
+$space: 15px;
+
+@mixin transition($transition...) {
+  -moz-transition:    $transition;
+  -o-transition:      $transition;
+  -webkit-transition: $transition;
+  transition:         $transition;
+}

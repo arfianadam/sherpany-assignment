@@ -13,7 +13,7 @@ import { useScroll } from 'react-router-scroll';
 import { getStoredState } from 'redux-persist';
 import localForage from 'localforage';
 import { socket, createApp } from 'app';
-import { Provider } from 'components';
+import Provider from 'components/Provider';
 import createStore from './redux/create';
 import ApiClient from './helpers/ApiClient';
 import getRoutes from './routes';

@@ -1,0 +1,29 @@
+@import '~theme/variables.scss';
+@import '~theme/custom.scss';
+
+.AgendaHeaderDummy {
+  background: $grey;
+
+  .title {
+    padding: $space;
+
+    input {
+      border: none;
+      background: transparent;
+      padding: 0 0 5px 0;
+      width: 150px;
+      border-bottom: 1px solid transparent;
+      @include transition(border-bottom .2s);
+
+      &:focus {
+        outline: none;
+        border-bottom: 1px solid $brand-primary;
+      }
+    }
+
+    span {
+      visibility: hidden;
+      white-space: pre;
+    }
+  }
+}
