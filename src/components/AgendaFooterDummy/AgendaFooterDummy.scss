@@ -4,17 +4,56 @@
   padding: $space;
   border-top: 1px solid $grey-dark;
 
-  .publish {
-    background: $blue;
-    border: none;
-    color: white;
-    padding: $space/4 $space*2;
-    border-radius: 3px;
-    font-weight: 500;
-    @include transition(all .2s);
+  .container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
 
-    &:hover {
-      background: darken($blue, 10%);
+    .publish {
+      background: $blue;
+      border: none;
+      color: white;
+      padding: $space/4 $space*2;
+      border-radius: 3px;
+      font-weight: 500;
+      @include transition(all .2s);
+
+      &:hover {
+        background: darken($blue, 10%);
+      }
+    }
+
+    .buttonsContainer {
+      display: flex;
+      align-items: center;
+
+      .divider {
+        display: inline-block;
+        height: 30px;
+        width: 1px;
+        background: $grey-dark;
+        margin-left: $space*2;
+      }
+
+      .icon {
+        display: inline-block;
+        font-family: sherpany;
+        color: $blue;
+        font-size: 1.5em;
+        margin-left: $space*2;
+        background: transparent;
+        border: none;
+        padding: 0;
+        @include transition(all .2s);
+
+        &:focus {
+          outline: none;
+        }
+
+        &:hover {
+          color: darken($blue, 10%);
+        }
+      }
     }
   }
 }
