@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import styles from './AgendaFooter.scss';
+import AgendaFooterDummy from 'components/AgendaFooterDummy';
 
 export default class AgendaFooter extends Component {
   constructor(props) {
@@ -9,9 +9,7 @@ export default class AgendaFooter extends Component {
 
   render() {
     return (
-      <div className={styles.AgendaFooter}>
-        <h3>This is footer</h3>
-      </div>
+      <AgendaFooterDummy />
     );
   }
 }
