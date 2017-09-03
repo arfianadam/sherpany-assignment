@@ -1,6 +1,11 @@
 @import '~theme/variables.scss';
 @import '~theme/custom.scss';
 
+.hasChild {
+  padding: 0 !important;
+  border-bottom: none !important;
+}
+
 .AgendaListItem {
   display: flex;
 
@@ -14,9 +19,6 @@
 
   &.main {
     font-weight: 500;
-
-    &:nth-child(odd) {
-      background: $grey;
-    }
+    background: $grey;
   }
 }

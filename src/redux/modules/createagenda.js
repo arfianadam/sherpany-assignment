@@ -22,12 +22,32 @@ export default function reducer(state = initialState, action = {}) {
         activeTab: action.payload
       };
     case ADD_NEW_ITEM:
+      if (action.payload.isSubItem) {
+        const lastItemIndex = state.agendaList.length - 1;
+        const lastItem = {
+          ...state.agendaList[lastItemIndex],
+          items: [
+            ...state.agendaList[lastItemIndex].items,
+            {
+              text: action.payload.item
+            }
+          ]
+        };
+        return {
+          ...state,
+          agendaList: [
+            ...(state.agendaList.slice(0, lastItemIndex)),
+            lastItem
+          ]
+        };
+      }
       return {
         ...state,
         agendaList: [
           ...state.agendaList,
           {
-            text: action.payload
+            text: action.payload.item,
+            items: []
           }
         ]
       };
@@ -50,9 +70,9 @@ export function switchTab(tab) {
   };
 }
 
-export function addNewItem(item) {
+export function addNewItem(item, isSubItem) {
   return {
     type: ADD_NEW_ITEM,
-    payload: item
+    payload: { item, isSubItem }
   };
 }

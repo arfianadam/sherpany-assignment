@@ -20,9 +20,9 @@ export default class AgendaList extends Component {
     this.state = {};
   }
 
-  addNewItem = (item) => {
+  addNewItem = (item, isSubItem = false) => {
     const { dispatch } = this.props;
-    dispatch(addNewItem(item));
+    dispatch(addNewItem(item, isSubItem));
   }
 
   render() {

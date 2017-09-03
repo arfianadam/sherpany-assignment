@@ -13,7 +13,8 @@ export default class AgendaListDummy extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      newItemValue: ''
+      newItemValue: '',
+      isSubItem: false
     };
   }
 
@@ -32,9 +33,17 @@ export default class AgendaListDummy extends Component {
 
   addNewItem = (e) => {
     e.preventDefault();
-    const { addNewItem } = this.props;
-    const { newItemValue } = this.state;
-    addNewItem(newItemValue);
+    const { addNewItem, agendaList } = this.props;
+    const { newItemValue, isSubItem } = this.state;
+    if (newItemValue.length > 0) {
+      if (isSubItem) {
+        addNewItem(newItemValue, true);
+      } else {
+        addNewItem(newItemValue);
+      }
+    } else if (agendaList.length > 0) {
+      this.toggleSubItem();
+    }
     this.clearInput();
   }
 
@@ -44,10 +53,21 @@ export default class AgendaListDummy extends Component {
     });
   }
 
+  toggleSubItem = () => {
+    const { isSubItem } = this.state;
+    this.setState({
+      isSubItem: !isSubItem
+    });
+  }
+
   render() {
     const { agendaList } = this.props;
-    const { newItemValue } = this.state;
-    const newItemIndex = agendaList.length + 1;
+    const { newItemValue, isSubItem } = this.state;
+    const lastItemIndex = agendaList.length - 1;
+    let newItemIndex = agendaList.length + 1;
+    if (isSubItem) {
+      newItemIndex = `${agendaList.length}.${agendaList[lastItemIndex].items.length + 1}`;
+    }
     return (
       <div className={styles.AgendaListDummy}>
         <ul>

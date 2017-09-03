@@ -15,9 +15,31 @@ export default class AgendaListItem extends Component {
 
   render() {
     const { item, index } = this.props;
-    const isMainItem = !item.items;
+    if (item.items.length > 0) {
+      return (
+        <li className={styles.hasChild}>
+          <ul>
+            <li className={`${styles.AgendaListItem} ${styles.main}`}>
+              <aside className={styles.itemIndex}>{index}</aside>
+              <span>{item.text}</span>
+            </li>
+            {item.items.map((subItem, key) => (
+              <li
+                className={`${styles.AgendaListItem} ${styles.sub}`}
+                // because react needs unique key props
+                // eslint-disable-next-line
+                key={key}
+              >
+                <aside className={styles.itemIndex}>{`${index}.${key + 1}`}</aside>
+                <span>{subItem.text}</span>
+              </li>
+            ))}
+          </ul>
+        </li>
+      );
+    }
     return (
-      <li className={`${styles.AgendaListItem} ${isMainItem ? styles.main : styles.sub}`}>
+      <li className={`${styles.AgendaListItem} ${styles.main}`}>
         <aside className={styles.itemIndex}>{index}</aside>
         <span>{item.text}</span>
       </li>
