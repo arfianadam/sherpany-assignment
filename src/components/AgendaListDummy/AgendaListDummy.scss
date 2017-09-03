@@ -15,7 +15,7 @@
 
       aside, input {
         padding: 0 $space;
-        color: $grey-dark;
+        color: $grey-darker;
       }
 
       aside {
@@ -32,7 +32,7 @@
           outline: none;
         }
       }
-      @include inputPlaceholderColor($grey-dark);
+      @include inputPlaceholderColor($grey-darker);
     }
   }
 }
