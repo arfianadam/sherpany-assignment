@@ -1,0 +1,22 @@
+@import '~theme/variables.scss';
+@import '~theme/custom.scss';
+
+.AgendaListItem {
+  display: flex;
+
+  aside.itemIndex, span {
+    color: $text-color;
+  }
+
+  span {
+    padding: 0 $space;
+  }
+
+  &.main {
+    font-weight: 500;
+
+    &:nth-child(odd) {
+      background: $grey;
+    }
+  }
+}

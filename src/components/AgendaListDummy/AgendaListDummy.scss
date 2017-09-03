@@ -1,0 +1,38 @@
+@import '~theme/variables.scss';
+@import '~theme/custom.scss';
+
+.AgendaListDummy {
+  ul {
+    padding: 0;
+    list-style-type: none;
+    li {
+      padding: $space;
+      border-bottom: 1px solid $grey-dark;
+
+      form {
+        display: flex;
+      }
+
+      aside, input {
+        padding: 0 $space;
+        color: $grey-dark;
+      }
+
+      aside {
+        width: 60px;
+      }
+
+      input {
+        flex-grow: 1;
+        background: transparent;
+        border: none;
+        color: $text-color;
+
+        &:focus {
+          outline: none;
+        }
+      }
+      @include inputPlaceholderColor($grey-dark);
+    }
+  }
+}

@@ -1,9 +1,12 @@
 const CHANGE_TITLE = 'sherpany/createagenda/CHANGE_TITLE';
 const SWITCH_TAB = 'sherpany/createagenda/SWITCH_TAB';
 
+const ADD_NEW_ITEM = 'sherpany/createagenda/ADD_NEW_ITEM';
+
 const initialState = {
   title: '',
-  activeTab: 'details'
+  activeTab: 'details',
+  agendaList: []
 };
 
 export default function reducer(state = initialState, action = {}) {
@@ -17,6 +20,16 @@ export default function reducer(state = initialState, action = {}) {
       return {
         ...state,
         activeTab: action.payload
+      };
+    case ADD_NEW_ITEM:
+      return {
+        ...state,
+        agendaList: [
+          ...state.agendaList,
+          {
+            text: action.payload
+          }
+        ]
       };
     default:
       return state;
@@ -34,5 +47,12 @@ export function switchTab(tab) {
   return {
     type: SWITCH_TAB,
     payload: tab
+  };
+}
+
+export function addNewItem(item) {
+  return {
+    type: ADD_NEW_ITEM,
+    payload: item
   };
 }

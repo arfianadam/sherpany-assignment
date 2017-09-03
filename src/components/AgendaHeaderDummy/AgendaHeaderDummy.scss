@@ -17,9 +17,10 @@
 
       &:focus {
         outline: none;
-        border-bottom: 1px solid $brand-primary;
+        border-bottom: 1px solid $blue;
       }
     }
+    @include inputPlaceholderColor($grey-dark);
 
     span {
       visibility: hidden;

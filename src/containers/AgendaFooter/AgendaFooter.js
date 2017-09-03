@@ -10,7 +10,7 @@ export default class AgendaFooter extends Component {
   render() {
     return (
       <div className={styles.AgendaFooter}>
-        {/* Your code here */}
+        <h3>This is footer</h3>
       </div>
     );
   }
