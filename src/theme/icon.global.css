@@ -53,3 +53,6 @@
 .icon-upload:before {
   content: "\66";
 }
+.icon-close-round:before {
+  content: "\61";
+}

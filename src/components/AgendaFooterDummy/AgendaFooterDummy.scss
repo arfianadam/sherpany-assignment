@@ -1,7 +1,7 @@
 @import '~theme/custom.scss';
 
 .AgendaFooterDummy {
-  padding: $space;
+  padding: $space $space*2;
   border-top: 1px solid $grey-dark;
 
   .container {

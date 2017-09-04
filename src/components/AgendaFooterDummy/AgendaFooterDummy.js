@@ -1,4 +1,6 @@
 import React, { Component } from 'react';
+import Button from 'components/Button';
+import UploadDocumentModal from 'containers/UploadDocumentModal';
 import styles from './AgendaFooterDummy.scss';
 
 export default class AgendaFooterDummy extends Component {
@@ -20,7 +22,9 @@ export default class AgendaFooterDummy extends Component {
               <div className={styles.divider} />
               <button className={styles.icon} data-icon="b" />
               <button className={styles.icon} data-icon="c" />
-              <button className={styles.icon} data-icon="f" />
+              <Button icon="f">
+                <UploadDocumentModal />
+              </Button>
             </div>
           </section>
         </div>
