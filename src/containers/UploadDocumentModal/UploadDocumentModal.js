@@ -66,13 +66,13 @@ export default class UploadDocumentModal extends Component {
         <ul className={styles.fileList}>
           {files.map((file, key) => // eslint-disable-next-line
             (<li key={key}
-              className={file.checked ? styles.checked : ''}>
+              className={file.checked ? styles.checked : ''}
+              onClick={this.toggleSelect(file.id)}>
               <input
                 id={`file-${key}`}
                 type="checkbox"
-                checked={file.checked}
-                onChange={this.toggleSelect(file.id)} />
-              <label htmlFor={`file-${key}`}>{file.file.name}</label>
+                checked={file.checked} />
+              <span>{file.file.name}</span>
             </li>)
             )
           }

@@ -112,6 +112,7 @@
       padding: ($space*2/3) $space;
       border-bottom: 1px solid $grey-dark;
       display: flex;
+      cursor: default;
 
       &.checked {
         background: $blue-lighter;
