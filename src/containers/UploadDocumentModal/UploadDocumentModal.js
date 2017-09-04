@@ -42,14 +42,16 @@ export default class UploadDocumentModal extends Component {
         <div className={styles.dropzoneContainer}>
           <Dropzone
             className={styles.dropzone}
-            onDrop={this.onDrop} />
+            onDrop={this.onDrop}
+            accept="application/pdf" />
           <span className={styles.dropzoneLabel}>
             <i className="fa fa-plus" aria-hidden="true" />Drop new documents here
           </span>
           <span className={styles.dropzoneBrowse}>or
             <Dropzone
               className={styles.dropzoneBrowse}
-              onDrop={this.onDrop}>
+              onDrop={this.onDrop}
+              accept="application/pdf">
               Browse your computer
             </Dropzone>
           </span>
