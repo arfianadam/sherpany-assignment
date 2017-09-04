@@ -1,8 +1,12 @@
+import { splice } from 'helpers/polyfill';
+
 const CHANGE_TITLE = 'sherpany/createagenda/CHANGE_TITLE';
 const SWITCH_TAB = 'sherpany/createagenda/SWITCH_TAB';
 
 const ADD_NEW_ITEM = 'sherpany/createagenda/ADD_NEW_ITEM';
 const ADD_NEW_FILES = 'sherpany/createagenda/ADD_NEW_FILES';
+
+const TOGGLE_SELECT = 'sherpany/createagenda/TOGGLE_SELECT';
 
 const initialState = {
   title: '',
@@ -66,6 +70,14 @@ export default function reducer(state = initialState, action = {}) {
           ...state.files, ...action.payload
         ]
       };
+
+    case TOGGLE_SELECT:
+      const index = state.files.findIndex(file => file.id === action.payload);
+      const file = { ...state.files[index], checked: !state.files[index].checked };
+      return {
+        ...state,
+        files: splice(state.files, index, 1, file)
+      };
     default:
       return state;
   }
@@ -95,11 +107,18 @@ export function addNewItem(item, isSubItem) {
 export function addNewFiles(files) {
   const labeledFiles = files.map((file) => {
     lastItemID++;
-    return { id: lastItemID, file };
+    return { id: lastItemID, checked: false, file };
   });
   console.log(labeledFiles);
   return {
     type: ADD_NEW_FILES,
     payload: labeledFiles
+  };
+}
+
+export function toggleSelect(id) {
+  return {
+    type: TOGGLE_SELECT,
+    payload: id
   };
 }

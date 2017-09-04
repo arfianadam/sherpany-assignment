@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import Dropzone from 'react-dropzone';
-import { addNewFiles } from 'redux/modules/createagenda';
+import { addNewFiles, toggleSelect } from 'redux/modules/createagenda';
 import styles from './UploadDocumentModal.scss';
 
 @connect(state => ({
@@ -23,6 +23,11 @@ export default class UploadDocumentModal extends Component {
     const { dispatch } = this.props;
     console.log(droppedFiles);
     dispatch(addNewFiles(droppedFiles));
+  }
+
+  toggleSelect = id => () => {
+    const { dispatch } = this.props;
+    dispatch(toggleSelect(id));
   }
 
   render() {
@@ -60,8 +65,13 @@ export default class UploadDocumentModal extends Component {
         </div>
         <ul className={styles.fileList}>
           {files.map((file, key) => // eslint-disable-next-line
-            (<li key={key}>
-              <input id={`file-${key}`} type="checkbox" />
+            (<li key={key}
+              className={file.checked ? styles.checked : ''}>
+              <input
+                id={`file-${key}`}
+                type="checkbox"
+                checked={file.checked}
+                onChange={this.toggleSelect(file.id)} />
               <label htmlFor={`file-${key}`}>{file.file.name}</label>
             </li>)
             )
