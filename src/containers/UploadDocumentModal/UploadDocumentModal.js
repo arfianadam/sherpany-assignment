@@ -1,35 +1,32 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
+import { connect } from 'react-redux';
 import Dropzone from 'react-dropzone';
+import { addNewFiles } from 'redux/modules/createagenda';
 import styles from './UploadDocumentModal.scss';
 
+@connect(state => ({
+  files: state.createagenda.files
+}))
 export default class UploadDocumentModal extends Component {
   static propTypes = {
-    closeModal: PropTypes.func
+    closeModal: PropTypes.func,
+    dispatch: PropTypes.func.isRequired,
+    files: PropTypes.array.isRequired
   };
 
   static defaultProps = {
     closeModal: () => {}
   };
 
-  constructor(props) {
-    super(props);
-    this.state = {
-      files: []
-    };
-  }
-
   onDrop = droppedFiles => {
-    const { files } = this.state;
-    this.setState({
-      files: [...files, ...droppedFiles]
-    }, () => {
-      console.log(this.state.files);
-    });
+    const { dispatch } = this.props;
+    console.log(droppedFiles);
+    dispatch(addNewFiles(droppedFiles));
   }
 
   render() {
-    const { closeModal } = this.props;
+    const { closeModal, files } = this.props;
     return (
       <div className={styles.UploadDocumentModal}>
         <header>
@@ -56,6 +53,21 @@ export default class UploadDocumentModal extends Component {
             </Dropzone>
           </span>
         </div>
+        <div className={styles.filesContainer}>
+          <header>
+            <span className={files.length > 0 ? '' : styles.disabled}>Available documents ({files.length})</span>
+          </header>
+        </div>
+        <ul className={styles.fileList}>
+          {files.map((file, key) => // eslint-disable-next-line
+            (<li key={key}>
+              <input id={`file-${key}`} type="checkbox" />
+              <label htmlFor={`file-${key}`}>{file.file.name}</label>
+            </li>)
+            )
+          }
+        </ul>
+        <footer>This is miw.</footer>
       </div>
     );
   }

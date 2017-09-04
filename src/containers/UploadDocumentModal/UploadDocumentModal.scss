@@ -36,6 +36,10 @@
     font-weight: 500;
     border-bottom: 1px solid $grey-dark;
 
+    .disabled {
+      color: $grey-darkest;
+    }
+
     .closeButton {
       float: right;
       background: none;
@@ -95,5 +99,34 @@
         cursor: pointer;
       }
     }
+  }
+
+  .fileList {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    flex-grow: 1;
+    border-bottom: 1px solid $grey-dark;
+
+    li {
+      padding: ($space*2/3) $space;
+      border-bottom: 1px solid $grey-dark;
+      display: flex;
+      background: $blue-lighter;
+
+      input {
+        margin-right: 10px;
+      }
+
+      label {
+        margin-bottom: 0;
+        font-weight: normal;
+        flex-grow: 1;
+      }
+    }
+  }
+
+  footer {
+    padding: $space;
   }
 }

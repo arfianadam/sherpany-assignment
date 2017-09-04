@@ -2,9 +2,11 @@ $white: #ffffff;
 $grey: #fafafa;
 $grey-dark: #DDDDDD;
 $grey-darker: #C1C1C1;
+$grey-darkest: #AAAAAA;
 $grey-light: #F8F8F8;
 $blue: #3399FF;
 $blue-light: #7DBBFF;
+$blue-lighter: #E5F2FF;
 $space: 15px;
 
 @mixin transition($transition...) {
