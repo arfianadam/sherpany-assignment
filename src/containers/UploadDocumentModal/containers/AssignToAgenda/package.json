@@ -1,0 +1,6 @@
+{
+  "name": "AssignToAgenda",
+  "version": "0.0.0",
+  "private": true,
+  "main": "./AssignToAgenda.js"
+}

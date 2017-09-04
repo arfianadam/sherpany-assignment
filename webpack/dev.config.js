@@ -53,6 +53,8 @@ var webpackConfig = module.exports = {
       'bootstrap-loader',
       'font-awesome-webpack!./src/theme/font-awesome.config.js',
       './src/theme/icon.global.css',
+      'react-select/dist/react-select.css',
+      './src/theme/custom.global.scss',
       './src/client.js'
     ]
   },
@@ -80,12 +82,11 @@ var webpackConfig = module.exports = {
         loader: 'happypack/loader?id=less',
         include: [path.resolve(__dirname, '../src')]
       }, {
+        test: /(global\.s?css)|(dist\/(.+)\.s?css)$/,
+        loader: 'happypack/loader?id=globalsass'
+      }, {
         test: /\.scss$/,
         loader: 'happypack/loader?id=sass',
-        include: [path.resolve(__dirname, '../src')]
-      }, {
-        test: /global\.s?css$/,
-        loader: 'happypack/loader?id=globalsass',
         include: [path.resolve(__dirname, '../src')]
       }, {
         test: /\.woff2?(\?v=\d+\.\d+\.\d+)?$/,

@@ -40,6 +40,7 @@ export default function reducer(state = initialState, action = {}) {
             ...state.agendaList[lastItemIndex].items,
             {
               text: action.payload.item,
+              label: `${state.agendaList.length}.${state.agendaList[lastItemIndex].items.length + 1} - ${action.payload.item}`, // eslint-disable-line
               id: lastAgendaID
             }
           ]
@@ -58,6 +59,7 @@ export default function reducer(state = initialState, action = {}) {
           ...state.agendaList,
           {
             text: action.payload.item,
+            label: `${state.agendaList.length + 1} - ${action.payload.item}`,
             items: [],
             id: lastAgendaID
           }
@@ -109,7 +111,6 @@ export function addNewFiles(files) {
     lastItemID++;
     return { id: lastItemID, checked: false, file };
   });
-  console.log(labeledFiles);
   return {
     type: ADD_NEW_FILES,
     payload: labeledFiles

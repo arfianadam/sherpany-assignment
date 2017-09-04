@@ -101,12 +101,51 @@
     }
   }
 
+  .searchContainer {
+    padding: $space;
+    display: flex;
+    align-items: center;
+    cursor: not-allowed;
+    border-bottom: 1px solid $grey-dark;
+
+    .search {
+      margin-right: $space;
+      color: $grey-dark;
+    }
+
+    input {
+      border: none;
+      flex-grow: 1;
+      cursor: not-allowed;
+    }
+
+    @include inputPlaceholderColor($grey-darker);
+
+    .divider {
+      width: 1px;
+      height: $space*1.5;
+      background: $grey-dark;
+      margin: 0 $space;
+    }
+
+    .selectAll {
+      margin-right: $space;
+      font-size: .8em;
+      color: $grey-darker;
+    }
+
+    .trash {
+      color: $grey-dark;
+    }
+  }
+
   .fileList {
     margin: 0;
     padding: 0;
     list-style: none;
     flex-grow: 1;
     border-bottom: 1px solid $grey-dark;
+    overflow-y: scroll;
 
     li {
       padding: ($space*2/3) $space;
@@ -119,7 +158,7 @@
       }
 
       input {
-        margin-right: 10px;
+        margin-right: $space;
       }
 
       label {
@@ -128,9 +167,5 @@
         flex-grow: 1;
       }
     }
-  }
-
-  footer {
-    padding: $space;
   }
 }
