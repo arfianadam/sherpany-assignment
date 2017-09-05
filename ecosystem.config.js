@@ -8,7 +8,10 @@ module.exports = {
       name      : 'sherpany',
       script    : './bin/server.js',
       env: {
-        COMMON_VARIABLE: 'true'
+        "NODE_PATH": "./src",
+        "NODE_ENV": "production",
+        "PORT": 8080,
+        "APIPORT": 3030
       },
       env_production : {
         "NODE_PATH": "./src",
