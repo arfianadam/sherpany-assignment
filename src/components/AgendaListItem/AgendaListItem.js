@@ -22,6 +22,9 @@ export default class AgendaListItem extends Component {
             <li className={`${styles.AgendaListItem} ${styles.main}`}>
               <aside className={styles.itemIndex}>{index}</aside>
               <span>{item.text}</span>
+              {item.files.map((file, fileKey) =>
+                <div key={fileKey} className={styles.fileName}>{file.fileName}</div>
+              )}
             </li>
             {item.items.map((subItem, key) => (
               <li
@@ -32,6 +35,9 @@ export default class AgendaListItem extends Component {
               >
                 <aside className={styles.itemIndex}>{`${index}.${key + 1}`}</aside>
                 <span>{subItem.text}</span>
+                {subItem.files.map((file, fileKey) =>
+                  <div key={fileKey} className={styles.fileName}>{file.fileName}</div>
+                )}
               </li>
             ))}
           </ul>
@@ -42,6 +48,7 @@ export default class AgendaListItem extends Component {
       <li className={`${styles.AgendaListItem} ${styles.main}`}>
         <aside className={styles.itemIndex}>{index}</aside>
         <span>{item.text}</span>
+        {item.files.map((file, key) => <div key={key} className={styles.fileName}>{file.fileName}</div>)}
       </li>
     );
   }

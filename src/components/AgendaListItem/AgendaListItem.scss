@@ -8,6 +8,7 @@
 
 .AgendaListItem {
   display: flex;
+  align-items: center;
 
   aside.itemIndex, span {
     color: $text-color;
@@ -15,6 +16,16 @@
 
   span {
     padding: 0 $space;
+  }
+
+  .fileName {
+    display: inline-block;
+    margin-left: $space;
+    font-size: .8em;
+    padding: 1px 10px;
+    border: 1px solid $blue;
+    border-radius: 4px;
+    color: $blue;
   }
 
   &.main {

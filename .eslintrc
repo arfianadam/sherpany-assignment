@@ -17,6 +17,7 @@
     "react/no-find-dom-node": "warn",
     "react/forbid-prop-types": "off",
     "react/no-unescaped-entities": "off",
+    "react/no-array-index-key": "off",
     "import/default": "off",
     "import/extensions": ["off"],
     "import/no-duplicates": "off",
