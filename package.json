@@ -25,7 +25,7 @@
   "main": "bin/server.js",
   "scripts": {
     "start": "concurrently --kill-others \"npm run start-prod\"",
-    "start": "concurrently --kill-others \"npm run start-pm2\"",
+    "start-pm2": "concurrently --kill-others \"npm run start-pm2\"",
     "start-prod": "better-npm-run start-prod",
     "dev": "concurrently --kill-others \"npm run watch-client\" \"npm run start-dev\"",
     "start-dev": "better-npm-run start-dev",
