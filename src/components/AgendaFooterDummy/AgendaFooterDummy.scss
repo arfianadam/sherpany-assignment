@@ -4,6 +4,10 @@
   padding: $space $space*2;
   border-top: 1px solid $grey-dark;
 
+  @media(max-width: 768px) {
+    padding: $space $space;
+  }
+
   .container {
     display: flex;
     align-items: center;
@@ -52,6 +56,12 @@
 
         &:hover {
           color: darken($blue, 10%);
+        }
+      }
+
+      @media(max-width: 768px) {
+        .divider, .icon {
+          display: none;
         }
       }
     }
