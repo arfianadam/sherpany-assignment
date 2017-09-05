@@ -25,6 +25,7 @@
   "main": "bin/server.js",
   "scripts": {
     "start": "concurrently --kill-others \"npm run start-prod\"",
+    "start": "concurrently --kill-others \"npm run start-pm2\"",
     "start-prod": "better-npm-run start-prod",
     "dev": "concurrently --kill-others \"npm run watch-client\" \"npm run start-dev\"",
     "start-dev": "better-npm-run start-dev",
@@ -44,6 +45,15 @@
   "betterScripts": {
     "start-prod": {
       "command": "node ./bin/server.js",
+      "env": {
+        "NODE_PATH": "./src",
+        "NODE_ENV": "production",
+        "PORT": 8080,
+        "APIPORT": 3030
+      }
+    },
+    "start-pm2": {
+      "command": "pm2 start ./bin/server.js",
       "env": {
         "NODE_PATH": "./src",
         "NODE_ENV": "production",
