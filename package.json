@@ -53,13 +53,7 @@
       }
     },
     "start-pm2": {
-      "command": "pm2 start ./bin/server.js",
-      "env": {
-        "NODE_PATH": "./src",
-        "NODE_ENV": "production",
-        "PORT": 8080,
-        "APIPORT": 3030
-      }
+      "command": "pm2 start ./pm2.js"
     },
     "start-dev": {
       "command": "node ./bin/server.js",
